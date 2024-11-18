@@ -52,5 +52,3 @@ async function renderTemplate(templateName) {
   const template = await response.text();
   return template;
 }
-
-renderTemplate('footer');

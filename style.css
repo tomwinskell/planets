@@ -79,3 +79,7 @@
 .navbar--mobile__chevron {
   transform: translate(0, -2px);
 }
+
+.footer__box {
+  height: 48px;
+}
