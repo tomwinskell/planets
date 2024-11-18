@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&family=League+Spartan:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Frontend Mentor | Planets fact site</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg p-2">
+        <div class="container-fluid">
+          <a
+            class="navbar-brand font-antonio fs-2 text-color-white text-uppercase"
+            href="#"
+            >The Planets</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <div class="navbar-toggler-icon"></div>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <div class="rounded-circle"></div>
+                <a
+                  class="nav-link font-spartan fw-500 text-uppercase text-color-white"
+                  aria-current="page"
+                  href="#"
+                  >Mercury</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link font-spartan fw-500 text-uppercase text-color-white"
+                  href="#"
+                  >Venus</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link font-spartan fw-500 text-uppercase text-color-white"
+                  href="#"
+                  >Earth</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link font-spartan fw-500 text-uppercase text-color-white"
+                  href="#"
+                  >Mars</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link font-spartan fw-500 text-uppercase text-color-white"
+                  href="#"
+                  >Jupiter</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link font-spartan fw-500 text-uppercase text-color-white"
+                  href="#"
+                  >Saturn</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link font-spartan fw-500 text-uppercase text-color-white"
+                  href="#"
+                  >Uranus</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link font-spartan fw-500 text-uppercase text-color-white"
+                  href="#"
+                  >Neptune</a
+                >
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link font-spartan fw-500 text-uppercase text-color-white"
+                  href="#"
+                  >Pluto</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <div class="seconary_navigation--mobile">
+      <ul class="nav nav-underline justify-content-around">
+        <li class="nav-item">
+          <a
+            class="nav-link font-spartan fw-500 text-uppercase text-color-white active"
+            aria-current="page"
+            href="#"
+            >Overview</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link font-spartan fw-500 text-uppercase text-color-white"
+            href="#"
+            >Structure</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link font-spartan fw-500 text-uppercase text-color-white"
+            href="#"
+            >Surface</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <main class="main d-flex flex-column justify-content-center text-center">
+      <div class="p-5">
+        <img class="img-fluid" src="./assets/planet-mercury.svg" alt="" />
+      </div>
+      <h2 class="font-antonio fw-500 mb-3 fs-1">{{name}}</h2>
+      <div class="font-spartan fw-400 fs-6 px-4">
+        {{overview.content}} Mercury is the smallest planet in the Solar System
+        and the closest to the Sun. Its orbit around the Sun takes 87.97 Earth
+        days, the shortest of all the Sun's planets. Mercury is one of four
+        terrestrial planets in the Solar System, and is a rocky body like Earth.
+        <div class="mt-3">
+          Source : <a href="{{overview.source}}">Wikipedia</a>
+        </div>
+      </div>
+    </main>
+
+    <div class="d-none seconary_navigation--desktop">
+      <ul>
+        <li>Overview</li>
+        <li>Structure</li>
+        <li>Surface</li>
+      </ul>
+    </div>
+
+    <footer
+      class="d-flex flex-column justify-content-center p-4 text-uppercase"
+    >
+      <div
+        class="d-flex flex-row justify-content-between align-items-center border my-2 p-2"
+      >
+        <div class="font-spartan fs-small">Rotation Time</div>
+        <div class="font-antonio fs-5">{{rotation}}</div>
+      </div>
+      <div
+        class="d-flex flex-row justify-content-between align-items-center border my-2 p-2"
+      >
+        <div class="font-spartan fs-small">Revolution Time</div>
+        <div class="font-antonio fs-5">{{revolution}}</div>
+      </div>
+      <div
+        class="d-flex flex-row justify-content-between align-items-center border my-2 p-2"
+      >
+        <div class="font-spartan fs-small">Radius</div>
+        <div class="font-antonio fs-5">{{radius}}</div>
+      </div>
+      <div
+        class="d-flex flex-row justify-content-between align-items-center border my-2 p-2"
+      >
+        <div class="font-spartan fs-small">Average Temp.</div>
+        <div class="font-antonio fs-5">{{temperature}}</div>
+      </div>
+    </footer>
+  </body>
+</html>

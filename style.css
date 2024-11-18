@@ -1,0 +1,43 @@
+:root {
+  --black: #070724;
+  --white: #FFFFFF;
+  --green: #419EBB;
+  --light-green: #B1D5E2;
+}
+
+.font-antonio {
+  font-family: "Antonio", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.font-spartan {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fs-small {
+  font-size: 0.75rem;
+}
+
+.text-color-white {
+  color: var(--white)
+}
+
+body {
+  background-color: var(--black);
+  color: var(--white)
+}
