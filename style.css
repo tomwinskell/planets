@@ -33,11 +33,49 @@
   font-size: 0.75rem;
 }
 
-.text-color-white {
-  color: var(--white)
+[data-bs-theme=dark] {
+  color-scheme: dark;
+  --bs-body-bg: var(--black);
 }
 
-body {
-  background-color: var(--black);
-  color: var(--white)
+.navbar--mobile__planets {
+  height: 20px; 
+  width: 20px; 
+  transform: translate(0, -2px);
+}
+
+.mercury {
+  background-color: #DEF4FC;
+}
+
+.venus {
+  background-color: #F7CC7F;
+}
+
+.earth {
+  background-color: #545BFE;
+}
+
+.mars {
+  background-color: #FF6A45;
+}
+
+.jupiter {
+  background-color: #ECAD7A;
+}
+
+.saturn {
+  background-color: #FCCB6B;
+}
+
+.uranus {
+  background-color: #65F0D5;
+}
+
+.neptune {
+  background-color: #497EFA;
+}
+
+.navbar--mobile__chevron {
+  transform: translate(0, -2px);
 }
