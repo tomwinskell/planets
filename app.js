@@ -1,6 +1,7 @@
 renderHtml('mercury');
 
 const mainElement = document.getElementById('js__main');
+const footer = document.getElementById('js__footer');
 
 const mainTemplate = `
   <div class="p-5">
@@ -42,5 +43,14 @@ async function searchJson(key, value) {
 
 async function renderHtml(value) {
   const data = await searchJson('name', value);
-  mainElement.innerHTML = Mustache.render(mainTemplate, data);
+  mainElement.innerHTML = Mustache.render(await renderTemplate('main'), data);
+  footer.innerHTML = Mustache.render(await renderTemplate('footer'), data);
 };
+
+async function renderTemplate(templateName) {
+  const response = await fetch(`./${templateName}.mustache`);
+  const template = await response.text();
+  return template;
+}
+
+renderTemplate('footer');
