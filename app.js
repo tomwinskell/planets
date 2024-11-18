@@ -21,6 +21,7 @@ document.querySelectorAll('.navbar--mobile__planets ~ a')
 .forEach((e) => {
   e.addEventListener('click', () => {
     renderHtml(e.innerHTML);
+    document.getElementById('navbarNav').classList.toggle('show');
   })
 });
 
@@ -42,5 +43,4 @@ async function searchJson(key, value) {
 async function renderHtml(value) {
   const data = await searchJson('name', value);
   mainElement.innerHTML = Mustache.render(mainTemplate, data);
-  document.getElementById('navbarNav').classList.toggle('show');
 };
