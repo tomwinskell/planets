@@ -3,21 +3,6 @@ renderHtml('mercury');
 const mainElement = document.getElementById('js__main');
 const footer = document.getElementById('js__footer');
 
-const mainTemplate = `
-  <div class="p-5">
-    <img class="img-fluid" src="{{{images.planet}}}" alt="" />
-  </div>
-  <h2 class="font-antonio fw-500 mb-3 fs-1" id="js__name">
-    {{name}}
-  </h2>
-  <div class="font-spartan fw-400 fs-6 px-4">
-    {{overview.content}}
-    <div class="mt-3">
-      Source : <a href="{{{overview.source}}}">Wikipedia</a>
-    </div>
-  </div>
-`;
-
 document.querySelectorAll('.navbar--mobile__planets ~ a')
 .forEach((e) => {
   e.addEventListener('click', () => {
@@ -43,7 +28,7 @@ async function searchJson(key, value) {
 
 async function renderHtml(value) {
   const data = await searchJson('name', value);
-  mainElement.innerHTML = Mustache.render(await renderTemplate('main'), data);
+  mainElement.innerHTML = Mustache.render(await renderTemplate('overview'), data);
   footer.innerHTML = Mustache.render(await renderTemplate('footer'), data);
 };
 
