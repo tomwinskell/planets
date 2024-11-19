@@ -87,3 +87,10 @@
 .main__image {
   height: 260px
 }
+
+@media (min-width: 768px) {
+  .footer__box {
+    height: auto;
+  }
+}
+

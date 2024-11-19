@@ -3,9 +3,11 @@ let currentSection = 'overview';
 renderHtml(currentPlanet);
 
 // construct variables for main DOM elements
-const mainElement = document.getElementById('js__main');
+const mainText = document.getElementById('js__main-text');
+const mainImage = document.getElementById('js__main-image');
 const navbarPrimary = document.getElementById('js__navbar-primary');
 const navbarSecondaryMobile = document.getElementById('js__navbar-secondary--mobile');
+const navbarSecondaryDesktop = document.getElementById('js__navbar-secondary--desktop');
 const footer = document.getElementById('js__footer');
 
 // add event listener logic to primary navigation links
@@ -23,7 +25,7 @@ document.querySelectorAll('.navbar--mobile__planets ~ a')
     // set current planet to new planet
     currentPlanet = e.innerHTML.toLowerCase();
 
-    // resets secondary menun to 'overview' section
+    // resets secondary menu to 'overview' section
     let id = `#${currentSection}`;
     navbarSecondaryMobile.querySelector(id).classList.toggle('active');
     navbarSecondaryMobile.querySelector('#overview').classList.toggle('active');
@@ -41,14 +43,28 @@ navbarSecondaryMobile.querySelectorAll('a')
       } else {
         renderHtml(currentPlanet, sectionName);
       }
+
+      // sets active class for active html element
       let id = `#${currentSection}`;
-
       navbarSecondaryMobile.querySelector(id).classList.toggle('active');
-      
       e.classList.toggle('active');
-
       currentSection = sectionName;
     })
+})
+
+navbarSecondaryDesktop.querySelectorAll('a')
+.forEach((e) => {
+  e.addEventListener('click', () => {
+    let sectionName = e.innerHTML.toLowerCase();
+    if (sectionName.includes('overview')) {
+      sectionName = 'overview';
+    } else if (sectionName.includes('structure')) {
+      sectionName = 'structure';
+    } else if (sectionName.includes('geology')) {
+      sectionName = 'geology';
+    }
+    renderHtml(currentPlanet, sectionName);
+  })
 })
 
 // read data from json file and return as objects
@@ -106,6 +122,7 @@ async function renderTemplate(templateName) {
 async function renderHtml(planetName, sectionName = 'overview') {
   const data = await searchJson('name', planetName);
   const refactoredObject = await processObject(sectionName, data);
-  mainElement.innerHTML = Mustache.render(await renderTemplate('main'), refactoredObject);
+  mainText.innerHTML = Mustache.render(await renderTemplate('main_text'), refactoredObject);
+  mainImage.innerHTML = Mustache.render(await renderTemplate('main_image'), refactoredObject);
   footer.innerHTML = Mustache.render(await renderTemplate('footer'), data);
 };
