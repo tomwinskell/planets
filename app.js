@@ -47,10 +47,9 @@ navbarSecondaryMobile.querySelectorAll('a')
     e.addEventListener('click', () => {
       let sectionName = e.innerHTML.toLowerCase();
       if (sectionName === 'surface') {
-        renderHtml(currentPlanet, 'geology');
-      } else {
-        renderHtml(currentPlanet, sectionName);
-      }
+        sectionName = 'geology';
+      } 
+      renderHtml(currentPlanet, sectionName);
 
       // sets active class for active html element
       let id = `#${currentSection}`;
