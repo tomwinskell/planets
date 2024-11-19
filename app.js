@@ -1,3 +1,4 @@
+// on load render html and set current selection
 let currentPlanet = 'mercury';
 let currentSection = 'overview';
 renderHtml(currentPlanet);
@@ -9,6 +10,8 @@ const navbarPrimary = document.getElementById('js__navbar-primary');
 const navbarSecondaryMobile = document.getElementById('js__navbar-secondary--mobile');
 const navbarSecondaryDesktop = document.getElementById('js__navbar-secondary--desktop');
 const footer = document.getElementById('js__footer');
+
+navbarSecondaryDesktop.querySelector('li').style.backgroundColor = returnPlanetColor();
 
 // add event listener logic to primary navigation links
 document.querySelectorAll('.navbar--mobile__planets ~ a')
@@ -25,10 +28,15 @@ document.querySelectorAll('.navbar--mobile__planets ~ a')
     // set current planet to new planet
     currentPlanet = e.innerHTML.toLowerCase();
 
-    // resets secondary menu to 'overview' section
+    // resets secondary menu (mobile) to 'overview' section
     let id = `#${currentSection}`;
     navbarSecondaryMobile.querySelector(id).classList.toggle('active');
     navbarSecondaryMobile.querySelector('#overview').classList.toggle('active');
+    
+    // resets secondary menu (desktop) to 'overview' section
+    navbarSecondaryDesktop.querySelector(id).parentElement
+    .style.backgroundColor = 'transparent';
+    navbarSecondaryDesktop.querySelector('li').style.backgroundColor = returnPlanetColor();
     currentSection = 'overview';
   });
 });
@@ -64,8 +72,25 @@ navbarSecondaryDesktop.querySelectorAll('a')
       sectionName = 'geology';
     }
     renderHtml(currentPlanet, sectionName);
+
+    // sets background color for active section
+    let id = `#${currentSection}`;
+    e.parentElement.style.backgroundColor = returnPlanetColor();
+    navbarSecondaryDesktop.querySelector(id).parentElement.style.backgroundColor = 'transparent';
+    currentSection = sectionName;
   })
 })
+
+// returns colour using currentPlanet
+function returnPlanetColor() {
+  return currentPlanet === 'mercury' ? '#DEF4FC' : 
+  currentPlanet === 'venus' ? '#F7CC7F' :
+  currentPlanet === 'earth' ? '#545BFE' :
+  currentPlanet === 'mars' ? '#FF6A45' :
+  currentPlanet === 'jupiter' ? '#ECAD7A' :
+  currentPlanet === 'saturn' ? '#FCCB6B' :
+  currentPlanet === 'uranus' ? '#65F0D5' : '#497EFA';
+}
 
 // read data from json file and return as objects
 async function readJsonFile() {
