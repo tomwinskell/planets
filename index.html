@@ -39,9 +39,9 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg p-2">
+      <nav class="navbar navbar-expand-lg p-2" id="js__navbar-primary">
         <div class="container-fluid">
-          <a class="navbar-brand font-antonio fs-2 text-uppercase" href="/"
+          <a class="navbar-brand font-antonio fs-2 text-uppercase" href="./"
             >The Planets</a
           >
           <button
@@ -65,10 +65,9 @@
                     class="rounded-circle me-3 color--off-white navbar--mobile__planets mercury"
                   ></div>
                   <a
-                    class="nav-link font-spartan fw-500 text-uppercase"
+                    class="nav-link font-spartan fw-500 text-uppercase active"
                     aria-current="page"
                     href="#"
-                    id="js__mercury"
                     >Mercury</a
                   >
                 </div>
@@ -224,23 +223,24 @@
       </nav>
     </header>
 
-    <div class="seconary_navigation--mobile">
+    <div id="js__navbar-secondary--mobile">
       <ul class="nav nav-underline justify-content-around">
         <li class="nav-item">
           <a
             class="nav-link font-spartan fw-500 text-uppercase active"
+            id="overview"
             aria-current="page"
             href="#"
             >Overview</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link font-spartan fw-500 text-uppercase" href="#"
+          <a class="nav-link font-spartan fw-500 text-uppercase" id="structure" href="#"
             >Structure</a
           >
         </li>
         <li class="nav-item">
-          <a class="nav-link font-spartan fw-500 text-uppercase" href="#"
+          <a class="nav-link font-spartan fw-500 text-uppercase" id="surface" href="#"
             >Surface</a
           >
         </li>

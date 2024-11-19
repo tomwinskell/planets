@@ -18,13 +18,11 @@
     "radius": "2,439.7 KM",
     "temperature": "430°c",
     "images": {
-      "planet": {
-        "source": "./assets/planet-mercury.svg",
-        "height": "height: clamp(6.938rem, 2.998rem + 16.808vi, 18.125rem);"
-      },
+      "planet": "./assets/planet-mercury.svg",
       "internal": "./assets/planet-mercury-internal.svg",
       "geology": "./assets/geology-mercury.png"
-    }
+    },
+    "height": "height: clamp(6.938rem, 2.998rem + 16.808vi, 18.125rem);"
   },
   {
     "name": "Venus",
@@ -45,13 +43,11 @@
     "radius": "6,051.8 KM",
     "temperature": "471°c",
     "images": {
-      "planet": {
-        "source": "./assets/planet-venus.svg",
-        "height": "height: clamp(9.625rem, 4.211rem + 23.099vi, 25rem);"
-      },
+      "planet": "./assets/planet-venus.svg",
       "internal": "./assets/planet-venus-internal.svg",
       "geology": "./assets/geology-venus.png"
-    }
+    },
+    "height": "height: clamp(9.625rem, 4.211rem + 23.099vi, 25rem);"
   },
   {
     "name": "Earth",
@@ -72,13 +68,11 @@
     "radius": "6,371 KM",
     "temperature": "16°c",
     "images": {
-      "planet": {
-        "source": "./assets/planet-earth.svg",
-        "height": "height: clamp(10.813rem, 4.717rem + 26.009vi, 28.125rem);" 
-      },
+      "planet": "./assets/planet-earth.svg",
       "internal": "./assets/planet-earth-internal.svg",
       "geology": "./assets/geology-earth.png"
-    }
+    },
+    "height": "height: clamp(10.813rem, 4.717rem + 26.009vi, 28.125rem);" 
   },
   {
     "name": "Mars",
@@ -99,13 +93,11 @@
     "radius": "3,389.5 KM",
     "temperature": "-28°c",
     "images": {
-      "planet": {
-        "source": "./assets/planet-mars.svg",
-        "height": "height: clamp(8.063rem, 3.507rem + 19.437vi, 21rem);"
-      },
+      "planet": "./assets/planet-mars.svg",
       "internal": "./assets/planet-mars-internal.svg",
       "geology": "./assets/geology-mars.png"
-    }
+    },
+    "height": "height: clamp(8.063rem, 3.507rem + 19.437vi, 21rem);"
   },
   {
     "name": "Jupiter",
@@ -126,13 +118,11 @@
     "radius": "69,911 KM",
     "temperature": "-108°c",
     "images": {
-      "planet": {
-        "source": "./assets/planet-jupiter.svg",
-        "height": "height: clamp(14rem, 6.121rem + 33.615vi, 36.375rem);"
-      },
+      "planet": "./assets/planet-jupiter.svg",
       "internal": "./assets/planet-jupiter-internal.svg",
       "geology": "./assets/geology-jupiter.png"
-    }
+    },
+    "height": "height: clamp(14rem, 6.121rem + 33.615vi, 36.375rem);"
   },
   {
     "name": "Saturn",
@@ -153,13 +143,11 @@
     "radius": "58,232 KM",
     "temperature": "-138°c",
     "images": {
-      "planet": {
-        "source": "./assets/planet-saturn.svg", 
-        "height": "height: clamp(16rem, 7.329rem + 36.995vi, 40.625rem);"
-      },
+      "planet": "./assets/planet-saturn.svg",
       "internal": "./assets/planet-saturn-internal.svg",
       "geology": "./assets/geology-saturn.png"
-    }
+    },
+    "height": "height: clamp(16rem, 7.329rem + 36.995vi, 40.625rem);"
   },
   {
     "name": "Uranus",
@@ -180,13 +168,11 @@
     "radius": "25,362 KM",
     "temperature": "-195°c",
     "images": {
-      "planet": {
-        "source": "./assets/planet-uranus.svg",
-        "height": "height: clamp(11rem, 4.794rem + 26.479vi, 28.625rem);"
-      },
+      "planet": "./assets/planet-uranus.svg",
       "internal": "./assets/planet-uranus-internal.svg",
       "geology": "./assets/geology-uranus.png"
-    }
+    },
+    "height": "height: clamp(11rem, 4.794rem + 26.479vi, 28.625rem);"
   },
   {
     "name": "Neptune",
@@ -207,12 +193,10 @@
     "radius": "24,622 KM",
     "temperature": "-201°c",
     "images": {
-      "planet": {
-        "source": "./assets/planet-neptune.svg",
-        "height": "height: clamp(10.813rem, 4.717rem + 26.009vi, 28.125rem);"
-      },
+      "planet": "./assets/planet-neptune.svg",
       "internal": "./assets/planet-neptune-internal.svg",
       "geology": "./assets/geology-neptune.png"
-    }
+    },
+    "height": "height: clamp(10.813rem, 4.717rem + 26.009vi, 28.125rem);"
   }
 ]
