@@ -3,6 +3,14 @@
   --white: #FFFFFF;
   --green: #419EBB;
   --light-green: #B1D5E2;
+  --mercury: #DEF4FC;
+  --venus: #F7CC7F;
+  --earth: #545BFE;
+  --mars: #FF6A45;
+  --jupiter: #ECAD7A;
+  --saturn: #FCCB6B;
+  --uranus: #65F0D5;
+  --neptune: #497EFA;
 }
 
 .font-antonio {
@@ -45,35 +53,35 @@
 }
 
 .mercury {
-  background-color: #DEF4FC;
+  background-color: var(--mercury);
 }
 
 .venus {
-  background-color: #F7CC7F;
+  background-color: var(--venus);
 }
 
 .earth {
-  background-color: #545BFE;
+  background-color: var(--earth);
 }
 
 .mars {
-  background-color: #FF6A45;
+  background-color: var(--mars);
 }
 
 .jupiter {
-  background-color: #ECAD7A;
+  background-color: var(--jupiter);
 }
 
 .saturn {
-  background-color: #FCCB6B;
+  background-color: var(--saturn);
 }
 
 .uranus {
-  background-color: #65F0D5;
+  background-color: var(--uranus);
 }
 
 .neptune {
-  background-color: #497EFA;
+  background-color: var(--neptune);
 }
 
 .navbar--mobile__chevron {

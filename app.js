@@ -17,7 +17,7 @@ navbarSecondaryDesktop.querySelector('li').style.backgroundColor = returnPlanetC
 document.querySelectorAll('.navbar--mobile__planets ~ a')
 .forEach((e) => {
   e.addEventListener('click', () => {
-    
+    // render data for planet requested
     renderHtml(e.innerHTML);
     // close the navbar
     navbarPrimary.querySelector('.collapse').classList.toggle('show');
@@ -27,17 +27,10 @@ document.querySelectorAll('.navbar--mobile__planets ~ a')
     e.classList.toggle('active');
     // set current planet to new planet
     currentPlanet = e.innerHTML.toLowerCase();
-
-    // resets secondary menu (mobile) to 'overview' section
-    let id = `#${currentSection}`;
-    navbarSecondaryMobile.querySelector(id).classList.toggle('active');
-    navbarSecondaryMobile.querySelector('#overview').classList.toggle('active');
-    
-    // resets secondary menu (desktop) to 'overview' section
-    navbarSecondaryDesktop.querySelector(id).parentElement
-    .style.backgroundColor = 'transparent';
-    navbarSecondaryDesktop.querySelector('li').style.backgroundColor = returnPlanetColor();
+    // reset current section to 'overview'
     currentSection = 'overview';
+    // resets secondary menu to 'overview' section
+    setSecondary('#overview');
   });
 });
 
@@ -48,16 +41,14 @@ navbarSecondaryMobile.querySelectorAll('a')
       let sectionName = e.innerHTML.toLowerCase();
       if (sectionName === 'surface') {
         sectionName = 'geology';
-      } 
+      }
+      // render data for section requested
       renderHtml(currentPlanet, sectionName);
-
-      // sets active class for active html element
-      let id = `#${currentSection}`;
-      navbarSecondaryMobile.querySelector(id).classList.toggle('active');
-      e.classList.toggle('active');
-      currentSection = sectionName;
+      // sets mobile and desktop secondary menus to section requested
+      setSecondary(`#${sectionName}`);
     })
 })
+
 
 navbarSecondaryDesktop.querySelectorAll('a')
 .forEach((e) => {
@@ -70,25 +61,43 @@ navbarSecondaryDesktop.querySelectorAll('a')
     } else if (sectionName.includes('geology')) {
       sectionName = 'geology';
     }
+    // render data for section requested
     renderHtml(currentPlanet, sectionName);
-
-    // sets background color for active section
-    let id = `#${currentSection}`;
-    e.parentElement.style.backgroundColor = returnPlanetColor();
-    navbarSecondaryDesktop.querySelector(id).parentElement.style.backgroundColor = 'transparent';
-    currentSection = sectionName;
+    // sets mobile and desktop secondary menus to section requested
+    setSecondary(`#${sectionName}`);
   })
 })
 
+// sets mobile and desktop secondary menus to section requested
+function setSecondary(sectionRequested) {
+  if (sectionRequested != currentSection) {
+    // sets secondary menu (mobile) to sectionRequested
+    navbarSecondaryMobile.querySelectorAll('a').forEach((element) => {
+      if (element.classList.contains('active')) {
+        element.classList.remove('active');
+      }
+    })
+    navbarSecondaryMobile.querySelector(sectionRequested).classList.add('active');
+    
+    // sets secondary menu (desktop) to sectionRequested
+    navbarSecondaryDesktop.querySelectorAll('li').forEach((element) => {
+      if (element.style.backgroundColor != 'transparent') {
+        element.style.backgroundColor = 'transparent';
+      };
+    });
+    navbarSecondaryDesktop.querySelector(sectionRequested).parentElement.style.backgroundColor = returnPlanetColor();
+  }
+}
+
 // returns colour using currentPlanet
 function returnPlanetColor() {
-  return currentPlanet === 'mercury' ? '#DEF4FC' : 
-  currentPlanet === 'venus' ? '#F7CC7F' :
-  currentPlanet === 'earth' ? '#545BFE' :
-  currentPlanet === 'mars' ? '#FF6A45' :
-  currentPlanet === 'jupiter' ? '#ECAD7A' :
-  currentPlanet === 'saturn' ? '#FCCB6B' :
-  currentPlanet === 'uranus' ? '#65F0D5' : '#497EFA';
+  return currentPlanet === 'mercury' ? 'var(--mercury)' : 
+  currentPlanet === 'venus' ? 'var(--venus)' :
+  currentPlanet === 'earth' ? 'var(--earth)' :
+  currentPlanet === 'mars' ? 'var(--mars)' :
+  currentPlanet === 'jupiter' ? 'var(--jupiter)' :
+  currentPlanet === 'saturn' ? 'var(--saturn)' :
+  currentPlanet === 'uranus' ? 'var(--uranus)' : 'var(--neptune)';
 }
 
 // read data from json file and return as objects
