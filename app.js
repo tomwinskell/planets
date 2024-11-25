@@ -91,13 +91,7 @@ function setSecondary(sectionRequested) {
 
 // returns colour using currentPlanet
 function returnPlanetColor() {
-  return currentPlanet === 'mercury' ? 'var(--mercury)' : 
-  currentPlanet === 'venus' ? 'var(--venus)' :
-  currentPlanet === 'earth' ? 'var(--earth)' :
-  currentPlanet === 'mars' ? 'var(--mars)' :
-  currentPlanet === 'jupiter' ? 'var(--jupiter)' :
-  currentPlanet === 'saturn' ? 'var(--saturn)' :
-  currentPlanet === 'uranus' ? 'var(--uranus)' : 'var(--neptune)';
+  return `var(--${currentPlanet}`;
 }
 
 // read data from json file and return as objects
@@ -120,27 +114,30 @@ async function searchJson(key, value) {
 // refactor planetObject to match placeholders in mustache template
 // returns newObject where data matches section called by click
 function processObject(section, object) {
-  let image;
-  switch (section) {
-    case 'overview':
-      image = 'planet'
-      break;
-    case 'structure':
-      image = 'internal'
-      break;
-    case 'geology':
-      image = 'geology'
-      break;
-    default:
-      break;
-  }
-  const newObject = {};
-  newObject['name'] = object.name;
-  newObject['content'] = object[`${section}`]['content'];
-  newObject['source'] = object[`${section}`]['source'];
-  newObject['imageSource'] = object['images'][`${image}`];
-  newObject['imageHeight'] = object.height;
-  return newObject;
+  let image = section === 'overview' ? 'planet' :
+  section === 'structure'? 'internal' : 'geology';
+  // let image;
+  // switch (section) {
+  //   case 'overview':
+  //     image = 'planet'
+  //     break;
+  //   case 'structure':
+  //     image = 'internal'
+  //     break;
+  //   case 'geology':
+  //     image = 'geology'
+  //     break;
+  //   default:
+  //     break;
+  // }
+  const {name, [section]: {content, source}, images, height} = object;
+  return {
+    name, 
+    content: content, 
+    source: source, 
+    imageSource: images[`${image}`], 
+    imageHeight: height
+  };
 }
 
 // fetch mustache template from file using fileName
