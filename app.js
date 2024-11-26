@@ -19,8 +19,11 @@ document.querySelectorAll('.navbar--mobile__planets ~ a')
   e.addEventListener('click', () => {
     // render data for planet requested
     renderHtml(e.innerHTML);
-    // close the navbar
-    navbarPrimary.querySelector('.collapse').classList.toggle('show');
+    // close the navbar only mobile version
+    const elementToHide = navbarPrimary.querySelector('.collapse')
+    if (elementToHide.classList.contains('show')) {
+      elementToHide.classList.remove('show');
+    };
     // remove active class from previous planet
     navbarPrimary.querySelector(`.${currentPlanet} ~ a`).classList.toggle('active');
     // add active class to new planet
@@ -141,15 +144,17 @@ async function renderHtml(planetName, sectionName = 'overview') {
   mainText.innerHTML = Mustache.render(await renderTemplate('main_text'), refactoredObject);
   mainImage.innerHTML = Mustache.render(await renderTemplate('main_image'), refactoredObject);
   footer.innerHTML = Mustache.render(await renderTemplate('footer'), data);
-
-  const {images: {geology: geologyImageUrl}} = data;
-  console.log(geologyImageUrl);
-  const imageContainer = mainImage.querySelector('div');
-  const geologyImage = document.createElement("img");
-  geologyImage.setAttribute('src', geologyImageUrl);
-  geologyImage.setAttribute('class', "position-absolute top-50 h-50");
-    
-    if (sectionName === 'geology') {
-      imageContainer.appendChild(geologyImage);
-    }
+  if (sectionName === 'geology') {
+    const {images: {[sectionName]: imageUrl}} = data;
+    appendImage(imageUrl)
+  }
 };
+
+// append image to the main image using specific image url
+function appendImage(imageUrl) {
+  const imageContainer = mainImage.querySelector('div');
+  const imageElement = document.createElement('img');
+  imageElement.setAttribute('src', imageUrl);
+  imageElement.setAttribute('class', "position-absolute top-50 h-50");
+  imageContainer.appendChild(imageElement);
+}
