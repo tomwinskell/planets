@@ -46,6 +46,11 @@
   --bs-body-bg: var(--black);
 }
 
+body {
+  background-image: url(/assets/background-stars.svg);
+}
+
+
 .navbar--mobile__planets {
   height: 20px; 
   width: 20px; 
@@ -93,7 +98,12 @@
 }
 
 .main__image {
-  height: 260px
+  min-height: 260px;
+}
+
+.placeholder-image {
+  width: 260px;
+  height: 260px;
 }
 
 @media (min-width: 768px) {

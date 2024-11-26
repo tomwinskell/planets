@@ -147,7 +147,7 @@
       "internal": "./assets/planet-saturn-internal.svg",
       "geology": "./assets/geology-saturn.png"
     },
-    "height": "height: clamp(16rem, 7.329rem + 36.995vi, 40.625rem);"
+    "height": "width: clamp(16rem, 7.329rem + 36.995vi, 40.625rem);"
   },
   {
     "name": "Uranus",

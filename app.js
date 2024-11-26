@@ -114,22 +114,8 @@ async function searchJson(key, value) {
 // refactor planetObject to match placeholders in mustache template
 // returns newObject where data matches section called by click
 function processObject(section, object) {
-  let image = section === 'overview' ? 'planet' :
-  section === 'structure'? 'internal' : 'geology';
-  // let image;
-  // switch (section) {
-  //   case 'overview':
-  //     image = 'planet'
-  //     break;
-  //   case 'structure':
-  //     image = 'internal'
-  //     break;
-  //   case 'geology':
-  //     image = 'geology'
-  //     break;
-  //   default:
-  //     break;
-  // }
+  let image = section === 'structure' ? 'internal' : 'planet';
+
   const {name, [section]: {content, source}, images, height} = object;
   return {
     name, 
@@ -151,8 +137,19 @@ async function renderTemplate(templateName) {
 // use template and object to modify innerHTML
 async function renderHtml(planetName, sectionName = 'overview') {
   const data = await searchJson('name', planetName);
-  const refactoredObject = await processObject(sectionName, data);
+  const refactoredObject = processObject(sectionName, data);
   mainText.innerHTML = Mustache.render(await renderTemplate('main_text'), refactoredObject);
   mainImage.innerHTML = Mustache.render(await renderTemplate('main_image'), refactoredObject);
   footer.innerHTML = Mustache.render(await renderTemplate('footer'), data);
+
+  const {images: {geology: geologyImageUrl}} = data;
+  console.log(geologyImageUrl);
+  const imageContainer = mainImage.querySelector('div');
+  const geologyImage = document.createElement("img");
+  geologyImage.setAttribute('src', geologyImageUrl);
+  geologyImage.setAttribute('class', "position-absolute top-50 h-50");
+    
+    if (sectionName === 'geology') {
+      imageContainer.appendChild(geologyImage);
+    }
 };
