@@ -11,7 +11,6 @@ This is a solution to the [Planets fact site challenge on Frontend Mentor](https
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
@@ -30,83 +29,103 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![Mobile Screenshot](./screenshots/planets_mobile.jpeg "Mobile Screenshot")
 
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+![Tablet Screenshot](./screenshots/planets_tablet.jpeg "Tablet Screenshot")
 
-Alternatively, you can use a tool like [FireShot](https://getfireshot.com/) to take the screenshot. FireShot has a free option, so you don't need to purchase it. 
-
-Then crop/optimize/edit your image however you like, add it to your project, and update the file path in the image above.
-
-**Note: Delete this note and the paragraphs above when you add your screenshot. If you prefer not to add a screenshot, feel free to remove this entire section.**
+![Desktop Screenshot](./screenshots/planets_desktop.jpeg "Desktop Screenshot")
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [https://github.com/tomwinskell/planets](https://github.com/tomwinskell/planets)
+- Live Site URL: [https://tomwinskell.github.io/planets](https://tomwinskell.github.io/planets)
 
 ## My process
+
+### Key Features and Implementation Details 
+
+1. **Bootstrap Integration**:  
+   - Navigation components were used directly from Bootstrap.  
+   - Most styling relies on Bootstrap classes for simplicity and consistency.  
+
+2. **Responsive Design**:  
+   - The HTML and initial Bootstrap classes were designed for mobile-first layouts.  
+   - Additional classes were added to enhance layouts for larger screens.  
+
+3. **Custom Styling**:  
+   - A minimal amount of custom CSS in `style.css` is used for styling outside Bootstrap's scope, such as colors and font styles.  
+
+4. **Template Rendering**:  
+   - Mustache templates are used for rendering dynamic content.  
+
+5. **JavaScript Functionality**:  
+   - The Fetch API is used to load data from a locally stored JSON file.  
+   - Based on user-selected resources, this data is dynamically injected into templates using Mustache.js.  
+   - The resulting HTML is then inserted into `index.html`.  
+
+6. **Optimized Performance**:  
+   - All data is loaded from the server when `index.html` is initially accessed.  
+   - After this, everything is rendered client-side, ensuring quick and seamless website transitions.  
 
 ### Built with
 
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
+- Bootstrap 5.3
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
+- JavaScript
+- [Mustache.js](https://mustache.github.io/) - for templating
 
-**Note: These are just examples. Delete this note and replace the list above with your own choices**
+## What I learned
 
-### What I learned
+### Using Mustache.js for Templating  
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+For this project, I utilized **Mustache.js** to handle HTML templating. The library was included via a CDN link in `index.html`. JavaScript is then used to dynamically set the `innerHTML` of a `<div>` element with content rendered by Mustache.js.  
 
-To see how you can add code snippets, see below:
+#### Rendering Data with Mustache.js  
+The following snippet demonstrates how data is rendered into a Mustache template and subsequently inserted into the DOM:  
+
+```javascript
+mainText.innerHTML = Mustache.render(await renderTemplate('main_text'), dataObject);
+```  
+
+Here’s an example of the corresponding Mustache template:  
 
 ```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
+<h1 class="display-1 font-antonio text-uppercase mb-3" id="js__name">
+  {{name}}
+</h1>
+<div class="font-spartan fs-6">
+  {{content}}
+  <div class="mt-3">
+    Source: <a href="{{{source}}}">Wikipedia</a>
+  </div>
+</div>
+```  
+
+### Fetching Templates and Data  
+The project leverages the Fetch API to load both JSON data and Mustache template files. Below is a function that retrieves a Mustache template file as a string:  
+
+```javascript
+async function renderTemplate(templateName) {
+  const response = await fetch(`./${templateName}.mustache`);
+  const template = await response.text();
+  return template;
 }
-```
-```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
-}
-```
+```  
 
-If you want more help with writing markdown, we'd recommend checking out [The Markdown Guide](https://www.markdownguide.org/) to learn more.
-
-**Note: Delete this note and the content within this section and replace with your own learnings.**
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
-
-**Note: Delete this note and the content within this section and replace with your own plans for continued development.**
+By combining these elements, the application dynamically renders content into the DOM, creating a responsive and modular design workflow.
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
+- [Bootstrap](https://getbootstrap.com/) - Official documentation for the popular CSS framework.
+- [Mustache.js](https://mustache.github.io/) - Official site for the Mustache templating library.
+- [MDN: Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) - Comprehensive guide to the Fetch API on MDN.
 
 ## Author
 
-- Website - [Add your name here](https://www.your-site.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
-- Twitter - [@yourusername](https://www.twitter.com/yourusername)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.
-
-**Note: Delete this note and edit this section's content as necessary. If you completed this challenge by yourself, feel free to delete this section entirely.**
+- Frontend Mentor - [@tomwinskell](https://www.frontendmentor.io/profile/tomwinskell)
+- [LinkedIn](https://www.linkedin.com/in/tomwinskell) - Professional network and career connections.
+- [Notion](https://tomwinskell.notion.site) - Personal workspace and knowledge management.
+- [GitHub](https://github.com/tomwinskell) - Check out my projects and code repositories.
