@@ -1,6 +1,6 @@
 # Frontend Mentor - Planets fact site solution
 
-This is a solution to the [Planets fact site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
+This is a solution to the [Planets fact site challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/planets-fact-site-gazqN8w_f). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
 ## Table of contents
 
@@ -29,11 +29,11 @@ Users should be able to:
 
 ### Screenshot
 
-![Mobile Screenshot](./screenshots/planets_mobile.jpeg "Mobile Screenshot")
+<img src="./screenshots/planets_mobile.jpeg" alt="Mobile Screenshot" title="Mobile Screenshot" height="200">
 
-![Tablet Screenshot](./screenshots/planets_tablet.jpeg "Tablet Screenshot")
+<img src="./screenshots/planets_tablet.jpeg" alt="Tablet Screenshot" title="Tablet Screenshot" height="200">
 
-![Desktop Screenshot](./screenshots/planets_desktop.jpeg "Desktop Screenshot")
+<img src="./screenshots/planets_desktop.jpeg" alt="Desktop Screenshot" title="Desktop Screenshot" height="200">
 
 ### Links
 
@@ -42,30 +42,35 @@ Users should be able to:
 
 ## My process
 
-### Key Features and Implementation Details 
+### Key Features and Implementation Details
 
-1. **Bootstrap Integration**:  
-   - Navigation components were used directly from Bootstrap.  
-   - Most styling relies on Bootstrap classes for simplicity and consistency.  
+1. **Bootstrap Integration**:
 
-2. **Responsive Design**:  
-   - The HTML and initial Bootstrap classes were designed for mobile-first layouts.  
-   - Additional classes were added to enhance layouts for larger screens.  
+   - Navigation components were used directly from Bootstrap.
+   - Most styling relies on Bootstrap classes for simplicity and consistency.
 
-3. **Custom Styling**:  
-   - A minimal amount of custom CSS in `style.css` is used for styling outside Bootstrap's scope, such as colors and font styles.  
+2. **Responsive Design**:
 
-4. **Template Rendering**:  
-   - Mustache templates are used for rendering dynamic content.  
+   - The HTML and initial Bootstrap classes were designed for mobile-first layouts.
+   - Additional classes were added to enhance layouts for larger screens.
 
-5. **JavaScript Functionality**:  
-   - The Fetch API is used to load data from a locally stored JSON file.  
-   - Based on user-selected resources, this data is dynamically injected into templates using Mustache.js.  
-   - The resulting HTML is then inserted into `index.html`.  
+3. **Custom Styling**:
 
-6. **Optimized Performance**:  
-   - All data is loaded from the server when `index.html` is initially accessed.  
-   - After this, everything is rendered client-side, ensuring quick and seamless website transitions.  
+   - A minimal amount of custom CSS in `style.css` is used for styling outside Bootstrap's scope, such as colors and font styles.
+
+4. **Template Rendering**:
+
+   - Mustache templates are used for rendering dynamic content.
+
+5. **JavaScript Functionality**:
+
+   - The Fetch API is used to load data from a locally stored JSON file.
+   - Based on user-selected resources, this data is dynamically injected into templates using Mustache.js.
+   - The resulting HTML is then inserted into `index.html`.
+
+6. **Optimized Performance**:
+   - All data is loaded from the server when `index.html` is initially accessed.
+   - After this, everything is rendered client-side, ensuring quick and seamless website transitions.
 
 ### Built with
 
@@ -79,18 +84,22 @@ Users should be able to:
 
 ## What I learned
 
-### Using Mustache.js for Templating  
+### Using Mustache.js for Templating
 
-For this project, I utilized **Mustache.js** to handle HTML templating. The library was included via a CDN link in `index.html`. JavaScript is then used to dynamically set the `innerHTML` of a `<div>` element with content rendered by Mustache.js.  
+For this project, I utilized **Mustache.js** to handle HTML templating. The library was included via a CDN link in `index.html`. JavaScript is then used to dynamically set the `innerHTML` of a `<div>` element with content rendered by Mustache.js.
 
-#### Rendering Data with Mustache.js  
-The following snippet demonstrates how data is rendered into a Mustache template and subsequently inserted into the DOM:  
+#### Rendering Data with Mustache.js
+
+The following snippet demonstrates how data is rendered into a Mustache template and subsequently inserted into the DOM:
 
 ```javascript
-mainText.innerHTML = Mustache.render(await renderTemplate('main_text'), dataObject);
-```  
+mainText.innerHTML = Mustache.render(
+  await renderTemplate('main_text'),
+  dataObject
+);
+```
 
-Here’s an example of the corresponding Mustache template:  
+Here’s an example of the corresponding Mustache template:
 
 ```html
 <h1 class="display-1 font-antonio text-uppercase mb-3" id="js__name">
@@ -98,14 +107,13 @@ Here’s an example of the corresponding Mustache template:
 </h1>
 <div class="font-spartan fs-6">
   {{content}}
-  <div class="mt-3">
-    Source: <a href="{{{source}}}">Wikipedia</a>
-  </div>
+  <div class="mt-3">Source: <a href="{{{source}}}">Wikipedia</a></div>
 </div>
-```  
+```
 
-### Fetching Templates and Data  
-The project leverages the Fetch API to load both JSON data and Mustache template files. Below is a function that retrieves a Mustache template file as a string:  
+### Fetching Templates and Data
+
+The project leverages the Fetch API to load both JSON data and Mustache template files. Below is a function that retrieves a Mustache template file as a string:
 
 ```javascript
 async function renderTemplate(templateName) {
@@ -113,7 +121,7 @@ async function renderTemplate(templateName) {
   const template = await response.text();
   return template;
 }
-```  
+```
 
 By combining these elements, the application dynamically renders content into the DOM, creating a responsive and modular design workflow.
 
