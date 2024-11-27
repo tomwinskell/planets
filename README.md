@@ -29,11 +29,11 @@ Users should be able to:
 
 ### Screenshot
 
-<img src="./screenshots/planets_mobile.jpeg" alt="Mobile Screenshot" title="Mobile Screenshot" height="200">
+<img src="./screenshots/planets_mobile.jpeg" alt="Mobile Screenshot" title="Mobile Screenshot" height="400">
 
-<img src="./screenshots/planets_tablet.jpeg" alt="Tablet Screenshot" title="Tablet Screenshot" height="200">
+<img src="./screenshots/planets_tablet.jpeg" alt="Tablet Screenshot" title="Tablet Screenshot" height="400">
 
-<img src="./screenshots/planets_desktop.jpeg" alt="Desktop Screenshot" title="Desktop Screenshot" height="200">
+<img src="./screenshots/planets_desktop.jpeg" alt="Desktop Screenshot" title="Desktop Screenshot" height="400">
 
 ### Links
 
