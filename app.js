@@ -53,7 +53,7 @@ navbarSecondaryMobile.querySelectorAll('a')
 })
 
 
-navbarSecondaryDesktop.querySelectorAll('a')
+navbarSecondaryDesktop.querySelectorAll('#js__navbar-secondary--desktop li')  //Changed the selector from 'a' to '#js__navbar-secondary--desktop li' to select each li inside the desktop secondary navbar
 .forEach((e) => {
   e.addEventListener('click', () => {
     let sectionName = e.innerHTML.toLowerCase();
